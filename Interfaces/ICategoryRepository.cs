@@ -2,7 +2,7 @@
 
 namespace GraphQLProject.Interfaces
 {
-    public interface IMenuRepository:IBaseRepository<Menu>
+    public interface ICategoryRepository: IBaseRepository<Category>
     {
     }
 }

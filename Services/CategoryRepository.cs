@@ -4,9 +4,9 @@ using GraphQLProject.Models;
 
 namespace GraphQLProject.Services
 {
-    public class MenuRepository : BaseRepository<Menu>, IMenuRepository
+    public class CategoryRepository : BaseRepository<Category>, ICategoryRepository
     {
-        public MenuRepository(GraphqlDbContext context) : base(context)
+        public CategoryRepository(GraphqlDbContext context) : base(context)
         {
         }
     }

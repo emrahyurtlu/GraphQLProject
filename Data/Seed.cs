@@ -1,48 +1,35 @@
 ﻿using GraphQLProject.Models;
 
-namespace GraphQLProject.Data
+namespace GraphQLProject.Data;
+
+public class Seed
 {
-    public class Seed
+    public static List<Menu> Menus()
     {
-        public static List<Menu> Menus ()
+        return new List<Menu> {
+           new Menu { Id = 1, Name = "Chicken Wings", Description = "Spicy chicken wings served with blue cheese dip.", Price = 9.99, ImageUrl = "https://example.com/menus/chicken-wings.jpg", CategoryId = 1 },
+           new Menu { Id = 2, Name = "Steak", Description = "Grilled steak with mashed potatoes and vegetables.", Price = 24.50, ImageUrl = "https://example.com/menus/steak.jpg", CategoryId = 2 },
+           new Menu { Id = 3, Name = "Chocolate Cake", Description = "Decadent chocolate cake with a scoop of vanilla ice cream.", Price = 6.95, ImageUrl = "https://example.com/menus/chocolate-cake.jpg", CategoryId = 3 }
+        };
+    }
+
+    public static List<Category> Categories()
+    {
+        return new List<Category>
         {
-            return new List<Menu> {
-                new Menu
-                {
-                    Id = 1,
-                    Name = "Classic Burger",
-                    Description = "Classic Burger Desc",
-                    Price = 6.99
-                },
-                new Menu
-                {
-                    Id = 2,
-                    Name = "Margherita Pizza",
-                    Description = "Margherita Pizza Desc",
-                    Price = 10.99
-                },
-                new Menu
-                {
-                    Id = 3,
-                    Name = "Grilled Chicked Salad",
-                    Description = "Grilled Chicked Salad Desc",
-                    Price = 8.99
-                },
-                new Menu
-                {
-                    Id = 4,
-                    Name = "Pasta Alfredo",
-                    Description = "Pasta Alfredo Desc",
-                    Price = 16.99
-                },
-                new Menu
-                {
-                    Id = 5,
-                    Name = "Chocolate Brownie Sundae",
-                    Description = "Chocolate Brownie Sundae Desc",
-                    Price = 3.99
-                }
-            };
-        }
+            new Category { Id = 1, Name = "Appetizers", ImageUrl = "https://example.com/categories/appetizers.jpg" },
+            new Category { Id = 2, Name = "Main Course", ImageUrl = "https://example.com/categories/main-course.jpg" },
+            new Category { Id = 3, Name = "Desserts", ImageUrl = "https://example.com/categories/desserts.jpg" }
+        };
+    }
+
+    public static List<Reservation> Reservations()
+    {
+        return new List<Reservation>
+        {
+           new Reservation { Id = 1, CustomerName = "John Doe", Email = "johndoe@example.com", PhoneNumber = "555-123-4567", PartySize = 2, SpecialRequest = "No nuts in the dishes, please.", ReservationDate = DateTime.Now.AddDays(7) },
+           new Reservation { Id = 2, CustomerName = "Jane Smith", Email = "janesmith@example.com", PhoneNumber = "555-987-6543", PartySize = 4, SpecialRequest = "Gluten-free options required.", ReservationDate = DateTime.Now.AddDays(10) },
+           new Reservation { Id = 3, CustomerName = "Michael Johnson", Email = "michaeljohnson@example.com", PhoneNumber = "555-789-0123", PartySize = 6, SpecialRequest = "Celebrating a birthday.", ReservationDate = DateTime.Now.AddDays(14) }
+        };
     }
 }

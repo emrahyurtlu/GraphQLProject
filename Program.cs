@@ -23,14 +23,33 @@ namespace GraphQLProject
             builder.Services.AddControllers();
 
             builder.Services.AddTransient<IMenuRepository, MenuRepository>();
+            builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddTransient<IReservationRepository, ReservationRepository>();
+
             
-            // GraphQL Settings
+
+            // GraphQL Menu Settings
             builder.Services.AddTransient<MenuType>();
             builder.Services.AddTransient<MenuQuery>();
             builder.Services.AddTransient<MenuMutation>();
             builder.Services.AddTransient<MenuInputType>();
 
-            builder.Services.AddTransient<ISchema,MenuSchema>();
+            // GraphQL Category Settings
+            builder.Services.AddTransient<CategoryType>();
+            builder.Services.AddTransient<CategoryQuery>();
+            builder.Services.AddTransient<CategoryMutation>();
+            builder.Services.AddTransient<CategoryInputType>();
+
+            // GraphQL Reservation Settings
+            builder.Services.AddTransient<ReservationType>();
+            builder.Services.AddTransient<ReservationQuery>();
+            builder.Services.AddTransient<ReservationMutation>();
+            builder.Services.AddTransient<ReservationInputType>();
+
+            // GraphQL Root Settings
+            builder.Services.AddTransient<RootQuery>();
+            builder.Services.AddTransient<RootMutation>();
+            builder.Services.AddTransient<ISchema, RootSchema>();
 
             // Enabling GraphQL Settings
             builder.Services.AddGraphQL(b=> b.AddAutoSchema<ISchema>().AddSystemTextJson());

@@ -13,7 +13,7 @@ public class MenuMutation: ObjectGraphType
                 .Arguments(new QueryArguments(new QueryArgument<MenuInputType> { Name = "menu" }))
                 .Resolve(ctx => {
                     var menu = ctx.GetArgument<Models.Menu>("menu");
-                    return menuRepository.AddMenu(menu);
+                    return menuRepository.Add(menu);
                 });
 
         Field<MenuType>("UpdateMenu")
@@ -23,14 +23,14 @@ public class MenuMutation: ObjectGraphType
                 .Resolve(ctx => {
                     int menuId = ctx.GetArgument<int>("menuId");
                     var menu = ctx.GetArgument<Models.Menu>("menu");
-                    return menuRepository.UpdateMenu(menuId, menu);
+                    return menuRepository.Update(menuId, menu);
                 });
 
         Field<StringGraphType>("DeleteMenu")
                 .Arguments(new QueryArguments(new QueryArgument<IntGraphType> { Name = "menuId" }))
                 .Resolve(ctx => {
                     int menuId = ctx.GetArgument<int>("menuId");
-                    menuRepository.DeleteMenu(menuId);
+                    menuRepository.Delete(menuId);
                     return "The menu has been deleted.";
                 });
     }
